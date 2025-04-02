@@ -68,17 +68,20 @@ public class DepartmentController {
     }
 
     @PatchMapping("departments/patch/{id}")
-    public Department partialUpdateDepartment(@PathVariable Long departmentId, @RequestBody
+    public Department partialUpdateDepartment(@PathVariable("id") Long departmentId, @RequestBody
     Map<String, Object> updates)
     {
+        LOGGER.info("Inside the partialUpdateDepartment  of PatchController");
         Department updateDepartment = departmentService.partialUpdateDepartment(departmentId, updates);
         return ResponseEntity.ok(updateDepartment).getBody();
+
     }
 
     @RequestMapping(method = RequestMethod.HEAD, path = "/{id}")
-    public ResponseEntity<Void> headDepartment(@PathVariable Long departmentId)
-    {
+    public ResponseEntity<Void> headDepartment(@PathVariable("id") Long departmentId)
+    {   LOGGER.info("Inside the headDepartment  of HeadController");
         boolean exists = departmentService.checkIfDepartmentExists(departmentId);
+
         if(exists)
         {
             return ResponseEntity.ok()

@@ -66,8 +66,8 @@ public class DepartmentServiceImpl implements DepartmentService {
                     break;
                 case "departmentAddress":
                     department.setDepartmentAddress((String) value);
-                case "departmentCode":
-                    department.setDepartmentCode((String) value);
+//                case "departmentCode":
+//                    department.setDepartmentCode((String) value);
             }
         });
 
@@ -76,7 +76,11 @@ public class DepartmentServiceImpl implements DepartmentService {
 
     @Override
     public boolean checkIfDepartmentExists(Long departmentId) {
-        return departmentRepository.existsById(departmentId);
+        try {
+            return departmentRepository.existsById(departmentId);
+        } catch (Exception e) {
+            throw new RuntimeException("Error while checking department existence", e);
+        }
     }
 }
 
