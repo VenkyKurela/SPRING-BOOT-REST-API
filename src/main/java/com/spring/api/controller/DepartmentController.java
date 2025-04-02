@@ -1,12 +1,10 @@
 package com.spring.api.controller;
-import com.spring.api.entity.*;
 import com.spring.api.entity.Department;
 import com.spring.api.service.DepartmentService;
-import com.spring.api.service.DepartmentServiceImpl;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -95,9 +93,5 @@ public class DepartmentController {
                     .build();  //http 404
         }
     }
-
-
-
-
 
 }
